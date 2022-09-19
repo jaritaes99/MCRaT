@@ -49,7 +49,7 @@
 #define SIMULATION_TYPE SCIENCE
 #define FILEPATH "/nobackup/jaritaes/CHOMBO_LOWER_BEG_RES/"
 #define FILEROOT "data."
-#define MC_PATH "SCIENCE-levs/1/"
+#define MC_PATH "SCIENCE-levs/5/"
 #define     SIM_SWITCH                  PLUTO_CHOMBO
 #define     GEOMETRY                    SPHERICAL
 #define     DIMENSIONS                  TWO
