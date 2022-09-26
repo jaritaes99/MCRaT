@@ -853,56 +853,60 @@ int main(int argc, char **argv)
             //get HD properties
 
             double max_dr=0, min_dr=DBL_MAX, max_temp=0, min_temp=DBL_MAX, max_gamma=0, min_gamma=DBL_MAX, max_theta=0, min_theta=DBL_MAX, max_dens=0, min_dens=DBL_MAX;
+            
+            int ph_block_index=0;
+
             for (i=0;i<num_ph; i++)
             {
-            ph_block_index=(ph+i)->nearest_block_index;
 
-            if (((hydro_data->r0_size))[ph_block_index] < min_dr)
+            ph_block_index=(phPtr+i)->nearest_block_index;
+
+            if (((hydrodata->r0_size))[ph_block_index] < min_dr)
             {
-                min_dr=(hydro_data->r0_size)[ph_block_index];
+                min_dr=(hydrodata->r0_size)[ph_block_index];
             }
 
-            if (((hydro_data->r0_size))[ph_block_index] > max_dr)
+            if (((hydrodata->r0_size))[ph_block_index] > max_dr)
             {
-                max_dr=(hydro_data->r0_size)[ph_block_index];
+                max_dr=(hydrodata->r0_size)[ph_block_index];
             }
 
-            if (((hydro_data->temp))[ph_block_index] < min_temp)
+            if (((hydrodata->temp))[ph_block_index] < min_temp)
             {
-                min_temp=(hydro_data->temp)[ph_block_index];
+                min_temp=(hydrodata->temp)[ph_block_index];
             }
 
-            if (((hydro_data->temp))[ph_block_index] > max_temp)
+            if (((hydrodata->temp))[ph_block_index] > max_temp)
             {
-                max_temp=(hydro_data->temp)[ph_block_index];
+                max_temp=(hydrodata->temp)[ph_block_index];
             }
 
-            if (((hydro_data->gamma))[ph_block_index] < min_gamma)
+            if (((hydrodata->gamma))[ph_block_index] < min_gamma)
             {
-                min_gamma=(hydro_data->gamma)[ph_block_index];
+                min_gamma=(hydrodata->gamma)[ph_block_index];
             }
 
-            if (((hydro_data->gamma))[ph_block_index] > max_gamma)
+            if (((hydrodata->gamma))[ph_block_index] > max_gamma)
             {
-                max_gamma=(hydro_data->gamma)[ph_block_index];
+                max_gamma=(hydrodata->gamma)[ph_block_index];
             }
-            if (((hydro_data->r1_size))[ph_block_index] < min_theta)
+            if (((hydrodata->r1_size))[ph_block_index] < min_theta)
             {            
-                min_theta=(hydro_data->r1_size)[ph_block_index];
+                min_theta=(hydrodata->r1_size)[ph_block_index];
             }
              
-            if (((hydro_data->r1_size))[ph_block_index] > max_theta)
+            if (((hydrodata->r1_size))[ph_block_index] > max_theta)
             {
-                max_theta=(hydro_data->r1_size)[ph_block_index];
+                max_theta=(hydrodata->r1_size)[ph_block_index];
             }
-            if (((hydro_data->dens))[ph_block_index] < min_dens)
+            if (((hydrodata->dens))[ph_block_index] < min_dens)
             {
-                min_dens=(hydro_data->dens)[ph_block_index];
+                min_dens=(hydrodata->dens)[ph_block_index];
             }
              
-            if (((hydro_data->dens))[ph_block_index] > max_dens)
+            if (((hydrodata->dens))[ph_block_index] > max_dens)
             {
-                max_dens=(hydro_data->dens)[ph_block_index];
+                max_dens=(hydrodata->dens)[ph_block_index];
             }
               
             }     
