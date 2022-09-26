@@ -849,6 +849,74 @@ int main(int argc, char **argv)
                 
             }
             #endif
+
+            //get HD properties
+
+            double max_dr=0, min_dr=DBL_MAX, max_temp=0, min_temp=DBL_MAX, max_gamma=0, min_gamma=DBL_MAX, max_theta=0, min_theta=DBL_MAX, max_dens=0, min_dens=DBL_MAX;
+            for (i=0;i<num_ph; i++)
+            {
+            ph_block_index=(ph+i)->nearest_block_index;
+
+            if (((hydro_data->r0_size))[ph_block_index] < min_dr)
+            {
+                min_dr=(hydro_data->r0_size)[ph_block_index];
+            }
+
+            if (((hydro_data->r0_size))[ph_block_index] > max_dr)
+            {
+                max_dr=(hydro_data->r0_size)[ph_block_index];
+            }
+
+            if (((hydro_data->temp))[ph_block_index] < min_temp)
+            {
+                min_temp=(hydro_data->temp)[ph_block_index];
+            }
+
+            if (((hydro_data->temp))[ph_block_index] > max_temp)
+            {
+                max_temp=(hydro_data->temp)[ph_block_index];
+            }
+
+            if (((hydro_data->gamma))[ph_block_index] < min_gamma)
+            {
+                min_gamma=(hydro_data->gamma)[ph_block_index];
+            }
+
+            if (((hydro_data->gamma))[ph_block_index] > max_gamma)
+            {
+                max_gamma=(hydro_data->gamma)[ph_block_index];
+            }
+            if (((hydro_data->r1_size))[ph_block_index] < min_theta)
+            {            
+                min_theta=(hydro_data->r1_size)[ph_block_index];
+            }
+             
+            if (((hydro_data->r1_size))[ph_block_index] > max_theta)
+            {
+                max_theta=(hydro_data->r1_size)[ph_block_index];
+            }
+            if (((hydro_data->dens))[ph_block_index] < min_dens)
+            {
+                min_dens=(hydro_data->dens)[ph_block_index];
+            }
+             
+            if (((hydro_data->dens))[ph_block_index] > max_dens)
+            {
+                max_dens=(hydro_data->dens)[ph_block_index];
+            }
+              
+            }     
+        
+            fprintf(fPtr, "The maximum dr=%e cm, The minimum dr=%e cm \n", max_dr, min_dr);
+            fflush(fPtr);
+            fprintf(fPtr, "The maximum theta=%e, the minimum theta=%e \n", max_theta, min_theta);
+            fflush(fPtr);
+            fprintf(fPtr, "The maximum temp=%e K, the minimum temp=%e K \n", max_temp, min_temp);
+            fflush(fPtr);
+            fprintf(fPtr, "The maximum gamma=%e, the minimum gamma=%e \n", max_gamma, min_gamma);
+            fflush(fPtr);
+            fprintf(fPtr, "The maximum density=%e, the minimum density=%e \n", max_dens, min_dens);
+            fflush(fPtr);
             
             //get scattering statistics
             phScattStats(phPtr, num_ph, &max_scatt, &min_scatt, &avg_scatt, &avg_r, fPtr);
