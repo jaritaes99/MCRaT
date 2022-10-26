@@ -672,6 +672,10 @@ void readPlutoChombo( char pluto_file[STR_BUFFER], struct hydro_dataframe *hydro
         elem_factor=0;
     #endif
     r_count=0;
+
+    fprintf(fPtr, "ph_inj_switch: %d\n", ph_inj_switch);
+    fflush(fPtr);
+
     while (r_count==0)
     {
         r_count=0;
