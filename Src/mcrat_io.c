@@ -1025,7 +1025,7 @@ int readCheckpoint(char dir[STR_BUFFER], struct photon **ph, int *frame2, int *f
         //printf("%d\n", *framestart);
         fread(frame2, sizeof(int), 1, fPtr);
         
-        if((*restart)=='c')
+        if((*restart)==CONTINUE)
         {
             fread(scatt_framestart, sizeof(int), 1, fPtr);
             
@@ -1111,7 +1111,7 @@ int readCheckpoint(char dir[STR_BUFFER], struct photon **ph, int *frame2, int *f
     {
         //*framestart=(*framestart);
         *scatt_framestart=(*framestart);
-        *restart='r';
+        *restart=INITALIZE;
         
     }
     
